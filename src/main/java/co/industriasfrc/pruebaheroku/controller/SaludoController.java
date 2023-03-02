@@ -2,9 +2,11 @@ package co.industriasfrc.pruebaheroku.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/saludos")
 public class SaludoController {
     
     @Value("${app.varexample}")
@@ -13,6 +15,6 @@ public class SaludoController {
     
     @GetMapping("/hola")
     public String saludo(){
-        return "Hola ";
+        return "Hola "+name;
     }
 }

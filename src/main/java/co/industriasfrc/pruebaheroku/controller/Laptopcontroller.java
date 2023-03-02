@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.industriasfrc.pruebaheroku.entities.*;
 import co.industriasfrc.pruebaheroku.repositories.Laptoprepository;
 
 @RestController
+@RequestMapping("/store")
 public class Laptopcontroller {
 
     private Laptoprepository laptoprepository;
@@ -27,7 +29,7 @@ public class Laptopcontroller {
         this.laptoprepository = laptoprepository;
     }
 
-    @GetMapping("api/laptops")
+    @GetMapping("/api/laptops")
     public List<Laptop> laptops() {
         return laptoprepository.findAll(); 
     }
